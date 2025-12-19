@@ -11,7 +11,7 @@ body{
     position: sticky;
     top: 0;
     background-image: linear-gradient(to right, rgb(0, 0, 0) 20%, rgb(255, 0, 0) 60%, rgb(0, 0, 0) 80%);
-    z-index: 10; /* Garante que o cabeçalho fique sobre outros elementos */
+    z-index: 10; 
 }
 
 h1, h2, li, label{
@@ -58,24 +58,19 @@ input{
 
 .grid-container {
     display: grid;
-    /* Cria uma grade com 4 colunas de larguras iguais */
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* Espaçamento entre todas as caixas */
-    
-    /* Use margem para centralizar a grade inteira, se necessário */
+    gap: 20px; 
+
     margin: 20px 80px; 
     padding: 20px;
     
-    /* A cor aqua estava em .container2, movi para cá para visualização */
-    /* background-color: aqua; */ /* Remova ou mude a cor quando terminar */
 }
 
-/* Regra para fazer as caixas largas ocuparem 2 colunas */
+
 .box-larga {
     grid-column: span 2;
 }
 
-/* Estilo unificado para TODAS as caixas (antigo .boxes e .emergencia) */
 .boxes {
     padding: 10px;
     border-radius: 30px;

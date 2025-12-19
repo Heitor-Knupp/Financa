@@ -1,4 +1,4 @@
-# 👽 Balanço Financeiro - Área 51
+#  Balanço Financeiro - Área 51
 
 Sistema web de controle financeiro desenvolvido para a gestão de caixa da República Área 51. O projeto visa automatizar cálculos de divisões orçamentárias, controle de dívidas e previsão de gastos para eventos (Aniversário).
 

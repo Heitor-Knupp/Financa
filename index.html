@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balanço</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="cabecalho-programa">
+        <div id="nome-imagem">
+            <img src="img/icone.png">
+            <h1>Balanço Financeiro Área 51</h1>
+            <img src="img/icone.png">
+            
+        </div>
+        <hr>
+    </header>
+
+    <section class="descricao">
+        <p>O balanço financeiro da república leva em conta alguns fatores imporantes, que são:</p>
+        <ul>
+            <li>Dinheiro total disponível na conta</li>
+            <li>Dinheiro destinado ao aniversário</li>
+            <li>Dinheiro restante da república</li>
+            <li>Dívidas existentes</li>
+        </ul>
+        <p>O dinheiro destinado ao aniversário é fixo e pré estabelecido pelos organizadores do evento, e, a diferença deste valor com o dinheiro total na conta, resulta na quantia que está
+            disponível para a casa, sendo que esse valor passa por uma divisao na proporção de 40|60, em que 40% do valor é destinado a emergencias e 60% destinado a reformas internas da casa. Vale lembrar
+            que a cada mês esse cálculo será refeito com base no caixa total, portanto, as quantias disponíveis para cada causa irá se alterar ao longo dos meses.
+        </p>
+    </section>
+
+
+    <section class="inputs">
+        <label id="label1" for="Input-ValorTotal">Valor total em caixa</label>
+        <input type="text" id="Input-ValorTotal" placeholder="Informe">
+
+        <label id="label2" for="Input-ValorAniversárioAtual">Valor do aniversário</label>
+        <input type="text" id="Input-ValorAniversárioAtual" placeholder="Informe">
+
+        <label id="label3" for="Total-Dividas">Quanto existe de dívidas</label>
+        <input type="text" id="Total-Dividas" placeholder="Quanto de dívidas?">
+    </section>
+
+
+    <section class="grid-container">
+    <div class="boxes" id="DinheiroTotal">
+        <h2>Dinheiro em Caixa</h2>
+        <p id="floatCaixa"></p>
+    </div>
+
+    <div class="boxes" id="DinheiroAniversario">
+        <h2>Dinheiro para Aniversário</h2>
+        <p id="floatAniversario"></p>
+    </div>
+
+    <div class="boxes" id="DinheiroDividas">
+        <h2>Dinheiro de Dívidas</h2>
+        <p id="floatDividas"></p>
+    </div>
+
+    <div class="boxes" id="DinheiroRepublica">
+        <h2>Dinheiro da República</h2>
+        <p id="floatRepublica"></p>
+    </div>
+
+    <div class="boxes box-larga" id="DinheiroEmergencial">
+        <h2>Dinheiro emergencial</h2>
+        <p id="floatEmergencia"></p>
+    </div>
+
+    <div class="boxes box-larga" id="DinheiroReformas">
+        <h2>Dinheiro de reformas</h2>
+        <p id="floatReforma"></p>
+    </div>
+</section>
+
+
+    <section class="fluxo">
+        <div class="fluxos-input">
+            <!--Parte destinada para entradas na república-->
+            <h2>Entrada de dinheiro</h2>
+
+            <label for="Quanto-Entrou">Quanto Entrou:</label>
+            <input type="text" id="Quanto-Entrou" placeholder="Quanto entrou?">
+
+            <label for="Veio-de-Onde">De onde veio:</label>
+            <input type="text" id="Veio-de-Onde" placeholder="Emergencia ou reforma">
+
+            <label for="Data-Entrada">Data:</label>
+            <input type="text" id="Data-Entrada" placeholder="Data de entrada">
+
+            <button class="button" onclick="entradas()">Adicionar</button>
+
+            <ul id="Lista-Entradas">
+
+            </ul>
+        </div>
+
+        <div class="fluxos-input">
+            <h2>Saída de dinheiro</h2>
+            <!--Parte destinada para saídas na república-->
+            <label for="Quanto-Saiu">Quanto saiu:</label>
+            <input type="text" id="Quanto-Saiu" placeholder="Quanto saiu?">
+
+            <label for="Porque-Saiu">Reforma ou Emergência?</label>
+            <input type="text" id="Porque-Saiu" placeholder="Emergencia ou reforma">
+
+            <label for="Destino-Saida">O que foi pago:</label>
+            <input type="text" id="Destino-Saida" placeholder="O que foi pago">
+
+            <button class="button" onclick="saidas()">Adicionar</button>
+
+            <ul id="Lista-Saidas">
+
+            </ul>
+        </div>
+
+        <div class="fluxos-input">
+            <h2>Entrada de dívidas</h2>
+            <!--Parte destinada para entradas de dívidas na república-->
+            <label for="Quem-Pagou">Quem mandou:</label>
+            <input type="text" id="Quem-Pagou" placeholder="Quem mandou">
+
+            <label for="Quem-Pagou-Quanto">Quantia:</label>
+            <input type="text" id="Quem-Pagou-Quanto" placeholder="Quantia"> 
+
+            <label for="Quem-Pagou-Quanto-Data">Data:</label>
+            <input type="text" id="Quem-Pagou-Quanto-Data" placeholder="Data"> 
+
+            <button class="button" onclick="dividas()">Adicionar</button>
+
+            <ul id="Lista-Dividas">
+
+            </ul>
+
+        </div>
+    </section>
+
+    <section class="controle-dividas">
+
+    </section>
+
+    <button class="button" onclick="resetarProgresso()">Resetar Progresso</button>
+    
+</body>
+
+<script src="script.js"></script>
+</html>

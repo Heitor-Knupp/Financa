@@ -139,25 +139,15 @@ function entradas() {
     salvarDados();
 }
 
-// ========================================================================
-//      ADICIONE ESTAS DUAS FUNÇÕES AO SEU CÓDIGO
-// ========================================================================
-
-/**
- * Salva os dados atuais no localStorage do navegador.
- */
 function salvarDados() {
-  // 1. Cria um objeto com as variáveis que precisam ser salvas.
   const dadosParaSalvar = {
     total: Valor_Total,
     aniversario: Valor_Aniversario,
     dividas: Valor_Dividas
   };
 
-  // 2. Converte o objeto para texto (JSON) e salva.
   localStorage.setItem('balancoDados', JSON.stringify(dadosParaSalvar));
 
-  // 3. Salva o conteúdo HTML de cada lista de transações.
   localStorage.setItem('listaDividasHtml', document.getElementById("Lista-Dividas").innerHTML);
   localStorage.setItem('listaSaidasHtml', document.getElementById("Lista-Saidas").innerHTML);
   localStorage.setItem('listaEntradasHtml', document.getElementById("Lista-Entradas").innerHTML);
@@ -165,29 +155,21 @@ function salvarDados() {
   console.log("Progresso salvo no navegador!");
 }
 
-
-/**
- * Carrega os dados do localStorage quando a página é aberta.
- */
 function carregarDados() {
-  // 1. Pega os dados salvos (se existirem).
   const dadosSalvos = localStorage.getItem('balancoDados');
 
-  // 2. Verifica se de fato existem dados para carregar.
   if (dadosSalvos) {
     const dados = JSON.parse(dadosSalvos);
 
-    // 3. Atribui os valores salvos de volta às suas variáveis.
     Valor_Total = dados.total;
     Valor_Aniversario = dados.aniversario;
     Valor_Dividas = dados.dividas;
 
-    // 4. Restaura o conteúdo das listas.
+
     document.getElementById("Lista-Dividas").innerHTML = localStorage.getItem('listaDividasHtml');
     document.getElementById("Lista-Saidas").innerHTML = localStorage.getItem('listaSaidasHtml');
     document.getElementById("Lista-Entradas").innerHTML = localStorage.getItem('listaEntradasHtml');
     
-    // 5. Roda suas funções para recalcular e exibir tudo na tela.
     ContasRepetitivas();
     prints();
     
@@ -195,26 +177,17 @@ function carregarDados() {
   }
 }
 
-// ========================================================================
-//      ADICIONE ESTA NOVA FUNÇÃO AO SEU SCRIPT
-// ========================================================================
-
-/**
- * Apaga todos os dados salvos no localStorage e recarrega a página.
- */
+//Apaga dados no localstorage
 function resetarProgresso() {
-  // 1. Pede confirmação ao usuário, pois é uma ação destrutiva.
   const confirmacao = confirm("Você tem certeza que deseja apagar todo o progresso? Esta ação não pode ser desfeita.");
 
-  // 2. Se o usuário clicar em "OK" (confirmar), o código dentro do if é executado.
   if (confirmacao) {
-    // 3. Limpa TUDO que estava salvo no localStorage para este site.
+    
     localStorage.clear();
     
-    // 4. Recarrega a página. A página vai iniciar do zero, pois não encontrará dados para carregar.
+    
     location.reload();
   }
 }
 
-// Adicione esta linha no final de todo o seu script
 window.addEventListener('DOMContentLoaded', carregarDados);
